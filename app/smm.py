@@ -48,12 +48,14 @@ def post_generator():
         user = User.query.get(session['user_id'])
 
         # Инициализация генератора текста
+
         post_gen = PostGenerator(
-            project_id=GCP_PROJECT_ID,
-            location=GCP_LOCATION,
+            api_key=DEEPSEEK_API_KEY,
             tone=tone,
             topic=topic
         )
+
+
 
         post_content = post_gen.generate_post()
 

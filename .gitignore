@@ -194,3 +194,4 @@ cython_debug/
 .cursorindexingignore
 my-config.py
 config.py
+/generated_images
