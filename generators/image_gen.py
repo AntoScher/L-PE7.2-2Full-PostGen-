@@ -66,12 +66,13 @@ class ImagenGenerator:
             # 2. Получение изображения в виде байтов
             image_bytes = response.images[0]._image_bytes
 
-            # 3. Сохранение локально
+
+            """# 3. Сохранение локально
             os.makedirs("generated_images", exist_ok=True)
             with Image.open(BytesIO(image_bytes)) as img:
                 img.save(local_path)
             logger.info(f"Изображение сохранено локально: {local_path}")
-
+            """
             # 4. Загрузка в GCS
             blob = self.bucket.blob(f"project-images/{filename}")
             blob.upload_from_string(image_bytes, content_type="image/jpeg")
